@@ -28,3 +28,26 @@
     background-color: rgb(0, 0, 106);
     border: 2px solid #000;
 }
+
+#witVierkantRechts{
+    width: 96px;
+    height: 96px;
+    background-color: white;
+    margin-left: 16px;
+    margin-top: 25px;
+}
+
+#kleinVierkantjeRechts{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(0, 0, 106);
+    margin-left: 16px;
+    margin-top: -96px;
+}
+
+#spoor{
+    font-size: 12px;
+    color: rgb(0, 0, 106);
+    margin-left: 40px;
+    margin-top: -15px;
+}
