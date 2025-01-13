@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekopdracht - NS-Treinbord</title>
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.min.js" integrity="sha512-1YMgn4j8cIL91s14ByDGmHtBU6+F8bWOMcF47S0cRO3QNm8SKPNexy4s3OCim9fABUtO++nJMtcpWbINWjMSzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
 </head>
 <body>
     <div id="container">
         <div id="left">
             <!-- hier komt de klok -->
-            <img id="NSKlok" src="assets/img/NS Klok.png" alt="Klok">
+            <img id="Klok" src="assets/img/NS Klok.png" alt="Klok">
+            <div id="clock"></div>
         </div>
         <div id="middle">
             <!-- Hier komt de reizigers info -->
              <div id="witVlak"></div>
              <div id="blauwBalkje"></div>
              <div id="volgendTreintje"> Hierna/<span>next</span>: 08:54 IC Venlo</div>
-             <div id="een"> 1 </div>
-             <div id="minuut"> minuut </div>
+             <div id="time"> 1 <span>minuut</span></div>
              <div id="sprinter"> sprinter </div>
              <div id="bestemming"> Geldermalsen </div>
              <div id="tussenStations1"> via Utrecht Lunetten, Houten, Houten Castellum </div>
@@ -37,5 +40,37 @@
     </div>
 </body>
 </html>
+<script>
+    const interval = setInterval(function() {
+                if (document.getElementById("time").innerHTML == "1 minuut") {
+    
+                    const now = new Date ();
+                    const hours = String(now.getHours()).padStart(2,"0");
+                    const minutes = String(now.getMinutes()).padStart(2,"0");
+                    document.getElementById("time").innerHTML = hours + ":" + minutes;
+    
+                }else {
+                    document.getElementById("time").innerHTML = "1 minuut";
+                }
+            },5000);
+    
+            let clock = () => {
+  let date = new Date();
+  let hrs = date.getHours();
+  let mins = date.getMinutes();
+  let secs = date.getSeconds();
+ 
+  hrs = hrs < 10 ? "0" + hrs : hrs;
+  mins = mins < 10 ? "0" + mins : mins;
+  secs = secs < 10 ? "0" + secs : secs;
+
+  let time = `${hrs}:${mins}:${secs}`;
+  document.getElementById("clock").innerText = time;
+  setTimeout(clock, 1000);
+};
+
+clock();
+    
+    </script>
 
 
